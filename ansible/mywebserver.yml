@@ -1,0 +1,18 @@
+---
+- hosts: mywebservers
+  become: yes
+  tasks:
+   - name: i want to install web server on ansbile node
+     apt:
+      name: "{{myjavapackageforubuntu}}"
+      state: present
+     when: ansible_os_family =="Debian"
+
+   - name: i want to start my webserver 
+     service:
+      name: "{{myjavapackageforubuntu}}"
+      state: started
+     when: ansible_os_family =="Debian"
+
+
+ 

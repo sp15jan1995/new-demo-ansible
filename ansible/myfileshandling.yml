@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+
+  - name: iwant to insatll webserver
+    apt: 
+      name: apache2
+      state: present
+
+  - name: i want to copy index file into ansbile node
+    template:
+      src: myindex.j2
+      dest: /var/www/html/index.html

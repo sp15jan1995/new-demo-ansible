@@ -1,0 +1,16 @@
+---
+- name: tomcat 10 is to download
+  get_url:
+   url: https://archive.apache.org/dist/tomcat/tomcat-10/v10.0.0/bin/apache-tomcat-10.0.0-deployer.tar.gz
+   dest: /home/ubuntu/apache-tomcat-10.0.0-deployer.tar.gz
+   force_basic_auth: yes
+
+- name:  directory
+  file: 
+    path: /opt/tomcat 
+    state: directory
+
+- name: extract the archive  
+  command:
+      cmd: sudo tar xzvf /home/ubuntu/apache-tomcat-10.0.0-deployer.tar.gz -C /opt/tomcat --strip-components=1
+      creates: /opt/tomcat/LICENSE

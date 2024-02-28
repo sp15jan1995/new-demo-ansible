@@ -1,7 +1,7 @@
-- name: stsrt tomcatuser.yml
+- name: start tomcatuser 
   systemd:
+   name: tomcat   
    state: started
    daemon_reload: yes
-   name: tomcat 
-   enabled: True
+   enabled: yes
    
